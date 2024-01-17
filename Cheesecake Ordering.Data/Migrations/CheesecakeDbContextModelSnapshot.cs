@@ -51,8 +51,8 @@ namespace Cheesecake_Ordering.Data.Migrations
                     b.Property<string>("Toppings")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Total")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("id");
 

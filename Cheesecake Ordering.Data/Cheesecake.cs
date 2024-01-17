@@ -10,6 +10,6 @@
         public string SpecialRequest { get; set; }
         public int Quantity { get; set; }
         public DateTime DeliveryDate { get; set; }
-        public int Total { get; set; }
+        public decimal Total { get; set; }
     }
 }

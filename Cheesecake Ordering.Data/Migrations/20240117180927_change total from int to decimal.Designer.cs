@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cheesecake_Ordering.Data.Migrations
 {
     [DbContext(typeof(CheesecakeDbContext))]
-    [Migration("20240107232956_Add Total")]
-    partial class AddTotal
+    [Migration("20240117180927_change total from int to decimal")]
+    partial class changetotalfrominttodecimal
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,8 +53,8 @@ namespace Cheesecake_Ordering.Data.Migrations
                     b.Property<string>("Toppings")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Total")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("id");
 

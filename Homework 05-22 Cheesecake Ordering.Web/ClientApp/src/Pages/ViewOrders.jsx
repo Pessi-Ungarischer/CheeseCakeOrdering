@@ -1,7 +1,7 @@
 ﻿import react, { useState, useEffect } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
-import OrderRow from '../OrderRow';
+import OrderRow from '../Components/OrderRow';
 
 
 const ViewOrders = () => {

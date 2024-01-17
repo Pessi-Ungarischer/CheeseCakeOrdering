@@ -14,7 +14,7 @@ const LivePreview = ({ baseFlavor, toppings, specialRequest, quantity, deliveryD
                     <p className="card-text">Special Requests: {specialRequest}</p>
                     <p className="card-text">Quantity: {quantity}</p>
                     <p className="card-text">Delivery Date: {deliveryDate && dayjs(deliveryDate).format('MM/DD/YYYY')}</p>
-                    <p className="card-text fw-bold">Total: ${total}</p>
+                    <p className="card-text fw-bold">Total: ${total.toFixed(2)}</p>
                 </div>
             </div>
         </div >

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cheesecake_Ordering.Data.Migrations
 {
     [DbContext(typeof(CheesecakeDbContext))]
-    [Migration("20240104193135_SetUp")]
-    partial class SetUp
+    [Migration("20240117180655_set up")]
+    partial class setup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,6 +52,9 @@ namespace Cheesecake_Ordering.Data.Migrations
 
                     b.Property<string>("Toppings")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Total")
+                        .HasColumnType("int");
 
                     b.HasKey("id");
 

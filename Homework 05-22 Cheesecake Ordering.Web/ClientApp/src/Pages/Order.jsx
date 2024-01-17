@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import LivePreview from '../LivePreview';
+import LivePreview from '../Components/LivePreview';
 
 
 
@@ -33,7 +33,6 @@ const HomePage = () => {
     const [specialRequest, setspecialRequest] = useState('');
     const [quantity, setQuantity] = useState(1);
     const [deliveryDate, setDeliveryDate] = useState('');
-    const [total, setTotal] = useState(0.00);
 
     const navigate = useNavigate();
 
@@ -71,7 +70,7 @@ const HomePage = () => {
         setDeliveryDate(e.target.value);
     }
 
-    //here is the problem!
+  
     const getTotal = () => {
         if (baseFlavor == baseFlavors[0]) {
             return 0;
@@ -89,7 +88,7 @@ const HomePage = () => {
             specialRequest,
             quantity,
             deliveryDate,
-            total
+            total: getTotal()
         };
         await axios.post('/api/CheeseCake/insertCheeseCake', cheeseCake);
 
@@ -114,7 +113,7 @@ const HomePage = () => {
                     </div>
 
                     <div className="mb-3">
-                        <label value={baseFlavor[0]} className="form-label">Cheesecake Base Flavor ($49.99)</label>
+                        <label value={baseFlavor} className="form-label">Cheesecake Base Flavor ($49.99)</label>
                         <select onChange={onBaseFlavorChange} className="form-select">
                             {baseFlavors.map((bFlavor, i) =>
                                 <option key={i}>
@@ -142,17 +141,17 @@ const HomePage = () => {
 
                         <div className="mb-3">
                             <label className="form-label">Special Requests</label>
-                            <textarea onChange={onspecialRequestChange} className="form-control" rows="3"></textarea>
+                            <textarea onChange={onspecialRequestChange} value={specialRequest} className="form-control" rows="3"></textarea>
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Quantity</label>
-                            <input onChange={onQuantityChange} type="number" className="form-control" min="1" />
+                            <input onChange={onQuantityChange} value={quantity} type="number" className="form-control" min="1" />
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Delivery Date</label>
-                            <input onChange={onDeliveryDateChange} type="date" className="form-control" />
+                            <input onChange={onDeliveryDateChange} value={deliveryDate}  type="date" className="form-control" />
                         </div>
 
                         <button
